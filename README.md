@@ -9,7 +9,8 @@ This BERT implementation has the following modifications:
 - [MASK] token is replaced 100% of the time instead of 80% in the original BERT.
 - Remove special tokens [CLS] and [SEP].
 
-
+# Download Japanese Dataset and pretrained BERT model (copy train data/, output/, eval data/, CandidatesOCR-rescore-lstm/, CandidatesOCR-rescore/, CandidatesOCR-original/, CandidatesOCR/ folders into project):
+https://drive.google.com/drive/folders/1JxkshEI-03RHl-0HLuRdiaR2wuZy1btT?usp=sharing
 
 # Installation (pytorch=1.6.0 , torchvision=0.7.0, python=3.7.6, transformers=4.0.1, fugashi=1.0.6, ipadic=1.0.0, datasets=1.1.3)
 pip install torch==1.6.0 torchvision==0.7.0 
