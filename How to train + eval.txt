@@ -1,0 +1,84 @@
+# train from a scratch
+
+python new_train_japanese.py \
+--max_position_embeddings=32 \
+--do_train \
+--train_data_files="train data/*.txt" \
+--output_dir="output/" \
+--per_device_train_batch_size=64 \
+--per_device_eval_batch_size=64 \
+--num_train_epochs=3 \
+--load_best_model_at_end \
+--save_steps=50000 \
+--logging_dir="logging/" \
+--logging_steps=50000 \
+--save_total_limit=2 \
+--seed=12345 \
+
+---------------------------------------------------------------------------
+
+# train from a scratch and evaluate during training (set evaluation_strategy = "step" or "epoch")
+
+python new_train_japanese.py \
+--max_position_embeddings=32 \
+--do_train \
+--train_data_files="train data/*.txt" \
+--output_dir="output/" \
+--do_eval \
+--eval_data_files="eval data/*.txt" \
+--evaluation_strategy="step" \
+--evaluate_during_training \
+--per_device_train_batch_size=64 \
+--per_device_eval_batch_size=64 \
+--num_train_epochs=3 \
+--load_best_model_at_end \
+--save_steps=50000 \
+--logging_dir="logging/" \
+--logging_steps=50000 \
+--save_total_limit=2 \
+--seed=12345 \
+
+----------------------------------------------------------------------------------
+
+# continue to train from checkpoint and evaluate during training (load the last checkpoint, example: --model_name_or_path="output/checkpoint-300000")
+
+python new_train_japanese.py \
+--max_position_embeddings=32 \
+--model_name_or_path="output/checkpoint-300000" \
+--do_train \
+--train_data_files="train data/*.txt" \
+--output_dir="output/" \
+--do_eval \
+--eval_data_files="eval data/*.txt" \
+--evaluation_strategy="step" \
+--evaluate_during_training \
+--per_device_train_batch_size=64 \
+--per_device_eval_batch_size=64 \
+--num_train_epochs=3 \
+--load_best_model_at_end \
+--save_steps=50000 \
+--logging_dir="logging/" \
+--logging_steps=50000 \
+--save_total_limit=2 \
+--seed=12345 \
+
+-------------------------------------------------------------------------------------
+
+# only evaluate existed model (load the model, example: --model_name_or_path="output/")
+
+python new_train_japanese.py \
+--max_position_embeddings=32 \
+--model_name_or_path="output/" \
+--output_dir="output/" \
+--do_eval \
+--eval_data_files="eval data/*.txt" \
+--per_device_train_batch_size=64 \
+--per_device_eval_batch_size=64 \
+--num_train_epochs=3 \
+--load_best_model_at_end \
+--save_steps=50000 \
+--logging_dir="logging/" \
+--logging_steps=50000 \
+--save_total_limit=2 \
+--seed=12345 \
+
